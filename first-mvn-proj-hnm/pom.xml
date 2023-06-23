@@ -6,7 +6,12 @@
 	<artifactId>first-mvn-proj-hnm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>first-mvn-proj-hnm</name>
-	<description>My first mvn java program</description>
+	<description>My first maven project</description>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
