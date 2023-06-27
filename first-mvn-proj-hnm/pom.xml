@@ -21,6 +21,16 @@
 			<version>5.9.1</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- SLF4J API -->
+
+		<!-- Logback implementation -->
+
+		<dependency>
+			<groupId>com.fssa.hnm.demo</groupId>
+			<artifactId>demo_mvn_project</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>
