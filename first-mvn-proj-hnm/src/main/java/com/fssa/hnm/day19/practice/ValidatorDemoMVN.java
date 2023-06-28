@@ -72,7 +72,14 @@ class UserValidator {
 
 //main method which holds all the validations for the user details
 
-	public static boolean validate(UserDetails user) {
+	public static boolean validate(UserDetails user) throws IllegalArgumentException {
+		
+//		throw new error if object is null
+		
+		if(user == null) {
+			
+			throw new IllegalArgumentException("Student object cannot be null.");
+		}
 
 //	calling the method to validate the id
 
@@ -269,18 +276,18 @@ class UserValidator {
 		if ("".equals(userPassword)) {
 			throw new IllegalArgumentException("Invalid password. Password cannot be white spaces.");
 		}
-		
+
 //		password must be 8 characters length
-		
-		if(userPassword.length() < 8) {
-			
+
+		if (userPassword.length() < 8) {
+
 			throw new IllegalArgumentException("Invalid password. Password must be 8 characters.");
 		}
-		
+
 //		password must be with 16 character length
-		
-		if(userPassword.length() > 16) {
-			
+
+		if (userPassword.length() > 16) {
+
 			throw new IllegalArgumentException("Invalid password. Password must be within 16 characters.");
 		}
 
@@ -295,7 +302,7 @@ class UserValidator {
 
 			throw new IllegalArgumentException("Invalid Password. Given input doesn't match the requested format.");
 		}
-		
+
 //		if there is not exception then return true
 		return true;
 	}

@@ -6,6 +6,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class TestUserObjectValidator {
+	
+	
+//	creating a new object with null 
+//	and testing the validation
+	@Test // checking the object validate with null 
+	public void testObjWithNull() {
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+			
+			UserValidator.validate(null);
+		});
+		
+		assertEquals("Student object cannot be null.", exception.getMessage());
+		
+	}
 
 //	id validation test cases start (7 test cases)
 
