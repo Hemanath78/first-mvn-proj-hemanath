@@ -6,94 +6,81 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class TestUserObjectValidator {
+
+//	creating one object using the blueprint of the user details 
+//	and using it every where
 	
-	
-//	creating a new object with null 
-//	and testing the validation
-	@Test // checking the object validate with null 
-	public void testObjWithNull() {
-		
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			
-			UserValidator.validate(null);
-		});
-		
-		assertEquals("Student object cannot be null.", exception.getMessage());
-		
+	public UserDetails checkValidate() {
+
+		UserDetails user = new UserDetails();
+
+		user.id = 125;
+		user.name = "Hemanath";
+		user.email = "hemanathm4@gmail.com";
+		user.password = "Hemanath@7867";
+
+		return user;
 	}
 
-//	id validation test cases start (7 test cases)
+//	creating a new object with null 
+//	and testing the validation
+	@Test // checking the object validate with null
+	public void testObjWithNull() {
+
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+
+			UserValidator.validate(null);
+		});
+
+		assertEquals("Student object cannot be null.", exception.getMessage());
+
+	}
+	
+	@Test // validating the main validation method
+	public void Validators() {
+		
+		UserDetails user = checkValidate();
+		
+		assertTrue(UserValidator.validate(user));
+	}
+
+//	id validation test cases start (3 test cases)
 
 	@Test // checking with correct user id
 	public void testIdValidate() {
 //		I am expecting true value from the method which validates the user id
-		assertTrue(UserValidator.idValidate("0134"));
-	}
-
-	@Test // checking with null user id
-	public void testIdValidatewithnull() {
-
-//		Lambda expression to short hand the try and catch
-//		declaring a variable to store the error message
-//		I am calling assertThrows method and passing which type of exception it will thrown
-//		when you run the following method
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate(null);
-		});
-
-//	    assertTrue(exception.getMessage().contains("Id cannot be null"));
-
-		assertEquals("Id cannot be null", exception.getMessage());
-
-	}
-
-	@Test // checking with empty string
-	public void testIdWithEmptyString() {
-
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate("      ");
-		});
-
-		assertEquals("Invalid id. Id cannot be white spaces", exception.getMessage());
-	}
+		
+		assertTrue(UserValidator.idValidate(132));
+	} 
 
 	@Test // checking with zero user id
 	public void testIdWithZero() {
 
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate("0");
+			UserValidator.idValidate(0);
 		});
 
-		assertEquals("Invalid id. Id cannot be zero.", exception.getMessage());
+		assertEquals("Invalid id. Id cannot be zero or less than zero.", exception.getMessage());
 	}
 
-	@Test // checking the id length one
-	public void testIdWithLenOne() {
+	@Test // checking with less than zero
+	public void testIdWithLessThanZero() {
+
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate("2");
+			UserValidator.idValidate(-1);
 		});
 
-		assertEquals("Invalid id. Minimum 2 characters requested.", exception.getMessage());
-
-	}
-
-	@Test // checking the id is not more than 5 characters
-	public void testIdWithMoreThanFive() {
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate("2345678");
-		});
-
-		assertEquals("Invalid id. Maximum 5 character is allowed.", exception.getMessage());
+		assertEquals("Invalid id. Id cannot be zero or less than zero.", exception.getMessage());
 
 	}
 
-	@Test // checking the id with alphabets and special characters
-	public void testIdWithPattern() {
+	@Test // checking the id is not more than 3 characters
+	public void testIdWithMoreThanThree() {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-			UserValidator.idValidate("123ab");
+			UserValidator.idValidate(1000);
 		});
 
-		assertEquals("Invalid id. Given input doesn't match the requested format.", exception.getMessage());
+		assertEquals("Invalid id. Id must within 3 digit number.", exception.getMessage());
 	}
 
 //	end of id validation test cases
