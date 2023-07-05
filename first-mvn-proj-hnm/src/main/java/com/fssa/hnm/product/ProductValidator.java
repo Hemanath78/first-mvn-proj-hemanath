@@ -429,6 +429,9 @@ public class ProductValidator {
 
   public static boolean validateAvailStockUnit(String unit)
     throws IllegalArgumentException {
+    // declaring array of string with different available units
+    String[] units = { "kg", "nos", "pkt" };
+
     //		attr to throw new error
 
     String attr = "Available stock unit";
@@ -439,15 +442,17 @@ public class ProductValidator {
 
     //		checking the given input unit is valid
 
-    if (!unit.equals("kg") && !unit.equals("nos") && !unit.equals("pkt")) {
-      throw new IllegalArgumentException(
-        "Invalid available stock unit. Requested unit is not given."
-      );
+    for (String units_arr : units) {
+      if (units_arr.equals(unit)) {
+        // if there is match then return true
+        return true;
+      }
     }
+    // if the given unit is not matched with unit throw an error
 
-    //		if there is no exception then return true
-
-    return true;
+    throw new IllegalArgumentException(
+      "Invalid available stock unit. Requested unit is not given."
+    );
   }
 
   //	validate the given available stock
@@ -514,6 +519,10 @@ public class ProductValidator {
 
   public static boolean validateQtyUnit(String unit)
     throws IllegalArgumentException {
+    // declaring of array of string with different units
+
+    String[] units = { "kg", "nos", "pkt", "gm" };
+
     //		attr to throw error
 
     String attr = "Product price unit";
@@ -524,20 +533,17 @@ public class ProductValidator {
 
     //		checking the given input unit is valid
 
-    if (
-      !unit.equals("kg") &&
-      !unit.equals("nos") &&
-      !unit.equals("pkt") &&
-      !unit.equals("gm")
-    ) {
-      throw new IllegalArgumentException(
-        "Invalid product weight unit. Requested unit is not given."
-      );
+    for (String unit_arr : units) {
+      if (unit_arr.equals(unit)) {
+        // if there is match then return true
+        return true;
+      }
     }
 
-    //		if there is no exception then return true
-
-    return true;
+    //		if there is no match then throw an error
+    throw new IllegalArgumentException(
+      "Invalid product weight unit. Requested unit is not given."
+    );
   }
 
   public static boolean validateQtyWeight(double num, String unit)

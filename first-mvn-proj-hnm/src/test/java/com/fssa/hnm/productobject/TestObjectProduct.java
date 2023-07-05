@@ -99,18 +99,22 @@ class TestObjectProduct {
 
     assertTrue(ProductValidator.validateAll(product));
   }
-  
+
   @Test // checking the main validation method with null
   void testMainValidationWithNull() {
-	  
-	  Product product = null;
-	  
-	  Exception exception = assertThrows(IllegalArgumentException.class, ()->{
-		  
-		  ProductValidator.validateAll(product);
-	  });
-	  
-	  assertEquals("Invalid product. Product cannot be null", exception.getMessage());
+    Product product = null;
+
+    Exception exception = assertThrows(
+      IllegalArgumentException.class,
+      () -> {
+        ProductValidator.validateAll(product);
+      }
+    );
+
+    assertEquals(
+      "Invalid product. Product cannot be null",
+      exception.getMessage()
+    );
   }
 
   //	main method validation test cases ends
@@ -678,15 +682,23 @@ class TestObjectProduct {
 
   //		test cases for available stock num
 
-  @Test // checking the num with correct input
-  void testAvailStockNumWithCorrect() {
+  @Test // checking the num with correct input kg
+  void testAvailStockNumWithCorrectUnitKg() {
     assertTrue(ProductValidator.validateAvailStockNum(22, "kg"));
+  }
+
+  @Test // checking the num with correct input nos
+  void testAvailStockNumWithCorrectUnitNos() {
     assertTrue(ProductValidator.validateAvailStockNum(22, "nos"));
+  }
+
+  @Test // checking the num with correct input pkt
+  void testAvailStockNumWithCorrectUnitPkt() {
     assertTrue(ProductValidator.validateAvailStockNum(22, "pkt"));
   }
 
-  @Test // checking the num with lesser than zero in
-  void testAvailStockNumWithLesserthanZero() {
+  @Test // checking the num with lesser than zero in kg
+  void testAvailStockNumWithLesserthanZeroWithKg() {
     //		checking with kg
     Exception exception = assertThrows(
       IllegalArgumentException.class,
@@ -699,7 +711,10 @@ class TestObjectProduct {
       "Invalid available stock. Available stock must be greater than 20 kg.",
       exception.getMessage()
     );
+  }
 
+  @Test // checking the num with lesser than zero in nos
+  void testAvailStockNumWithLesserthanZeroWithNos() {
     //		checking with nos
 
     Exception exception1 = assertThrows(
@@ -713,7 +728,10 @@ class TestObjectProduct {
       "Invalid available stock. Available stock must be greater than 20 nos.",
       exception1.getMessage()
     );
+  }
 
+  @Test // checking with num with leseer than zero in pkt
+  void testAvailStockNumWithLesserthanZeroWithPkt() {
     //		checking with pkt
 
     Exception exception2 = assertThrows(
@@ -778,10 +796,22 @@ class TestObjectProduct {
   }
 
   @Test // checking the product weight unit with right inputs
-  void testProductWeightUnit() {
+  void testProductWeightUnitWithKg() {
     assertTrue(ProductValidator.validateQtyUnit("kg"));
+  }
+
+  @Test // checking the product weight unit with gm input
+  void testProductWeightUnitWithGm() {
     assertTrue(ProductValidator.validateQtyUnit("gm"));
+  }
+
+  @Test // checking the product weight unit with nos input
+  void testProductWeightUnitWithNos() {
     assertTrue(ProductValidator.validateQtyUnit("nos"));
+  }
+
+  @Test // checking the product weight unit with pkt input
+  void testProductWeightUnitWithPkt() {
     assertTrue(ProductValidator.validateQtyUnit("pkt"));
   }
 
@@ -800,11 +830,23 @@ class TestObjectProduct {
     );
   }
 
-  @Test // checking the product weight with right input
+  @Test // checking the product weight with right num and kg
   void testProductWeight() {
     assertTrue(ProductValidator.validateQtyWeight(1.0, "kg"));
+  }
+
+  @Test // checking the proudct weight with right num and nos
+  void testProductWeightWithNos() {
     assertTrue(ProductValidator.validateQtyWeight(1, "nos"));
+  }
+
+  @Test // checking the product weight right num and pkt
+  void testProductWeightPkt() {
     assertTrue(ProductValidator.validateQtyWeight(1, "pkt"));
+  }
+
+  @Test // checking the proudct weight right num and gm
+  void testProductWeightGm() {
     assertTrue(ProductValidator.validateQtyWeight(250, "gm"));
   }
 
