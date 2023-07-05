@@ -1,10 +1,9 @@
-package com.fssa.hnm.productobject;
+package com.fssa.hnm.product;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.fssa.hnm.product.*;
 import org.junit.jupiter.api.Test;
 
 class TestObjectProduct {
