@@ -1,37 +1,33 @@
 package com.fssa.hnm.product;
 
 /**
- * 
+ *
  * @author HemanathMuralikrishn
  *
  */
 
 public class Category {
 
-	private String catId;
-	private String catName;
+  private String catId;
+  private String catName;
 
-//	get and set for catId
+  //	get and set for catId
 
-	public String getCatId() {
+  public String getCatId() {
+    return catId;
+  }
 
-		return catId;
-	}
+  public void setCatId(String catId) {
+    this.catId = catId;
+  }
 
-	public void setCatId(String catId) {
+  //	get and set for catName
 
-		this.catId = catId;
-	}
+  public String getCatName() {
+    return catName;
+  }
 
-//	get and set for catName
-
-	public String getCatName() {
-
-		return catName;
-	}
-
-	public void setCatName(String catName) {
-
-		this.catName = catName;
-	}
+  public void setCatName(String catName) {
+    this.catName = catName;
+  }
 }

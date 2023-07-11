@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ *
+ * @author HemanathMuralikrishn
+ *
+ */
+
 class TestObjectProduct {
 
   //	creating new product object with all attributes and values

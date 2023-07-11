@@ -2,33 +2,28 @@ package com.fssa.hnm.product;
 
 //	get and set for protein
 
-	public class Protein {
+public class Protein {
 
-		private double num;
-		private String unit; 
+  private double num;
+  private String unit;
 
-//		get and set for protein num
+  //		get and set for protein num
 
-		public double getNum() {
+  public double getNum() {
+    return num;
+  }
 
-			return num;
-		}
+  public void setNum(double d) {
+    this.num = d;
+  }
 
-		public void setNum(double d) {
+  //		get and set for protein unit
 
-			this.num = d;
-		}
+  public String getUnit() {
+    return unit;
+  }
 
-//		get and set for protein unit 
-
-		public String getUnit() {
-
-			return unit;
-
-		}
-
-		public void setUnit(String unit) {
-
-			this.unit = unit;
-		}
-	}
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
+}

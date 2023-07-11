@@ -1,51 +1,44 @@
 package com.fssa.hnm.product;
 
 /**
- * 
+ *
  * @author HemanathMuralikrishn
  *
  */
 
 public class Quantity {
 
-	private double rs; 
-	private String unit;
-	private double weight;
+  private double rs;
+  private String unit;
+  private double weight;
 
-//	get and set for weight
+  //	get and set for weight
 
-	public double getWeight() {
+  public double getWeight() {
+    return weight;
+  }
 
-		return weight;
-	}
+  public void setWeight(float weight) {
+    this.weight = weight;
+  }
 
-	public void setWeight(float weight) {
+  //	get and set for unit
 
-		this.weight = weight;
-	}
+  public String getUnit() {
+    return unit;
+  }
 
-//	get and set for unit
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
 
-	public String getUnit() {
+  //	get and set for rs
 
-		return unit;
-	}
+  public double getRs() {
+    return rs;
+  }
 
-	public void setUnit(String unit) {
-
-		this.unit = unit;
-	}
-
-//	get and set for rs
-
-	public double getRs() {
-
-		return rs;
-	}
-
-	public void setRs(float rs) {
-
-		this.rs = rs;
-	}
-
+  public void setRs(float rs) {
+    this.rs = rs;
+  }
 }

@@ -10,47 +10,18 @@ import java.util.regex.Pattern;
 
 public class ProductValidator {
 
-  //	main method which will validate the inputs
+  //	the below three are basic validation for maximum inputs
 
-  public static boolean validateAll(Product product)
+  // validate the object is not equal to null
+
+  public static void ValidateObject(Object object, String errorMessage)
     throws IllegalArgumentException {
-    //		   checking the object not equal to null
+    // if object is null then throw an expection
 
-    if (product == null) {
-      throw new IllegalArgumentException(
-        "Invalid product. Product cannot be null"
-      );
+    if (object == null) {
+      throw new IllegalArgumentException(errorMessage);
     }
-
-    //		validate the name obj
-
-    validateNameObj(product.getName());
-
-    //		validate the image obj
-
-    validateImageObj(product.getImage());
-
-    //		validate the desc
-
-    validateDesc(product.getDesc());
-
-    //		validate the nutritions obj
-
-    validateNutrObj(product.getNutritions());
-
-    //		validate the available stock
-
-    validateAvailStockObj(product.getAvailablestock());
-
-    //		validate the quantity
-
-    validateQuantityObj(product.getQuantity());
-
-    //		if there is no exception then return true
-    return true;
   }
-
-  //	the below two are basic validation for maximum inputs
 
   //	checking the string is null or empty
 
@@ -82,6 +53,42 @@ public class ProductValidator {
     }
   }
 
+  //	main method which will validate the inputs
+
+  public static boolean validateAll(Product product)
+    throws IllegalArgumentException {
+    //		   checking the object not equal to null
+
+    ValidateObject(product, "Invalid product. Product cannot be null");
+
+    //		validate the name obj
+
+    validateNameObj(product.getName());
+
+    //		validate the image obj
+
+    validateImageObj(product.getImage());
+
+    //		validate the desc
+
+    validateDesc(product.getDesc());
+
+    //		validate the nutritions obj
+
+    validateNutrObj(product.getNutritions());
+
+    //		validate the available stock
+
+    validateAvailStockObj(product.getAvailablestock());
+
+    //		validate the quantity
+
+    validateQuantityObj(product.getQuantity());
+
+    //		if there is no exception then return true
+    return true;
+  }
+
   //	product name validation starts
 
   //		validate the product name object not equal to null
@@ -89,12 +96,7 @@ public class ProductValidator {
   public static boolean validateNameObj(Name name)
     throws IllegalArgumentException {
     //		checking the object is not equal to null
-
-    if (name == null) {
-      throw new IllegalArgumentException(
-        "Invalid product name. Product name cannot be null."
-      );
-    }
+    ValidateObject(name, "Invalid product name. Product name cannot be null.");
 
     //		validate the product english name
 
@@ -169,11 +171,10 @@ public class ProductValidator {
     throws IllegalArgumentException {
     //		checking the object not equal to null
 
-    if (image == null) {
-      throw new IllegalArgumentException(
-        "Invalid product image. Product image cannot be null."
-      );
-    }
+    ValidateObject(
+      image,
+      "Invalid product image. Product image cannot be null."
+    );
 
     //		validate the image url
 
@@ -287,11 +288,11 @@ public class ProductValidator {
     throws IllegalArgumentException {
     //		checking the nutr is null
 
-    if (nutr == null) {
-      throw new IllegalArgumentException(
-        "Invalid product nutritions. Nutritions cannot be null."
-      );
-    }
+    ValidateObject(
+      nutr,
+      "Invalid product nutritions. Nutritions cannot be null."
+    );
+
     //		validate the product protein nutritions
 
     validateProteinObj(nutr.getProtein());
@@ -315,11 +316,10 @@ public class ProductValidator {
     throws IllegalArgumentException {
     //		checking the protein is object is null or not
 
-    if (protein == null) {
-      throw new IllegalArgumentException(
-        "Invalid protein nutritions. Protein nutritions cannot be null."
-      );
-    }
+    ValidateObject(
+      protein,
+      "Invalid protein nutritions. Protein nutritions cannot be null."
+    );
 
     //		validate the protein num
 
@@ -335,12 +335,10 @@ public class ProductValidator {
   public static boolean validateCarboObj(Carbohydrates carbo)
     throws IllegalArgumentException {
     //		checking the carbohydrates is object is null or not
-
-    if (carbo == null) {
-      throw new IllegalArgumentException(
-        "Invalid carbohydrates nutritions. Protein nutritions cannot be null"
-      );
-    }
+    ValidateObject(
+      carbo,
+      "Invalid carbohydrates nutritions. Protein nutritions cannot be null"
+    );
 
     //		validate the carbo hydrates num
 
@@ -406,11 +404,10 @@ public class ProductValidator {
     throws IllegalArgumentException {
     //		if avail obj is null throw new error
 
-    if (avail == null) {
-      throw new IllegalArgumentException(
-        "Invalid available stock. Available stock cannote be null."
-      );
-    }
+    ValidateObject(
+      avail,
+      "Invalid available stock. Available stock cannote be null."
+    );
 
     //		validate the avail stock unit
 
@@ -481,11 +478,7 @@ public class ProductValidator {
     throws IllegalArgumentException {
     //		checking the obj is null
 
-    if (qty == null) {
-      throw new IllegalArgumentException(
-        "Invalid product qty. It cannot be null."
-      );
-    }
+    ValidateObject(qty, "Invalid product qty. It cannot be null.");
 
     //		validate the qty rs
 

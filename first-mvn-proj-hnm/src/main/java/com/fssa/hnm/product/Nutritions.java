@@ -1,43 +1,40 @@
 package com.fssa.hnm.product;
 
 /**
- * 
+ *
  * @author HemanathMuralikrishn
  *
  */
 
-public class Nutritions { 
+public class Nutritions {
 
-	private Protein protein;
-	private Carbohydrates carbo;
-	private double kcal;
+  private Protein protein;
+  private Carbohydrates carbo;
+  private double kcal;
 
-//	get and set for kcal
+  //	get and set for kcal
 
-	public double getKcal() {
+  public double getKcal() {
+    return kcal;
+  }
 
-		return kcal;
-	}
+  public void setKcal(double kcal) {
+    this.kcal = kcal;
+  }
 
-	public void setKcal(double kcal) {
+  public Protein getProtein() {
+    return protein;
+  }
 
-		this.kcal = kcal;
-	}
+  public void setProtein(Protein protein) {
+    this.protein = protein;
+  }
 
-	public Protein getProtein() {
-		return protein;
-	}
+  public Carbohydrates getCarbo() {
+    return carbo;
+  }
 
-	public void setProtein(Protein protein) {
-		this.protein = protein;
-	}
-
-	public Carbohydrates getCarbo() {
-		return carbo;
-	}
-
-	public void setCarbo(Carbohydrates carbo) {
-		this.carbo = carbo;
-	}
-
+  public void setCarbo(Carbohydrates carbo) {
+    this.carbo = carbo;
+  }
 }
